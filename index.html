@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>元素沙盒 · Falling Sand</title>
+<meta name="description" content="一个单页物理沙盒：沙子、水、火、油、岩浆、酸液、种子……互相反应。">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <div class="brand">
+      <span class="logo"></span>
+      <h1>元素沙盒</h1>
+      <span class="sub">Falling Sand · 单页物理沙盒</span>
+    </div>
+    <div class="hud">
+      <span><b id="hudFps">60</b> FPS</span>
+      <span>粒子 <b id="hudCount">0</b></span>
+      <span>当前 <b id="hudEl">沙子</b></span>
+      <span class="dim">坐标 <b id="hudCursor">–</b></span>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="stage">
+      <canvas id="view"></canvas>
+      <div class="flash" id="flash">山谷</div>
+    </section>
+
+    <aside class="panel">
+      <div class="group">
+        <h2>元素</h2>
+        <div class="palette" id="palette"></div>
+      </div>
+
+      <div class="group">
+        <h2>笔刷 <span class="mini" id="brushVal">5</span></h2>
+        <input type="range" id="brush" min="0" max="24" value="5" aria-label="笔刷大小">
+      </div>
+
+      <div class="group">
+        <h2>场景</h2>
+        <div class="row" id="presets"></div>
+      </div>
+
+      <div class="group">
+        <h2>天气</h2>
+        <div class="row" id="weather"></div>
+      </div>
+
+      <div class="group">
+        <h2>控制</h2>
+        <div class="row">
+          <button class="btn" id="pause">暂停</button>
+          <button class="btn" id="stepBtn">单步</button>
+          <button class="btn" id="clearBtn">清空</button>
+        </div>
+        <div class="row" id="speed" style="margin-top:8px"></div>
+      </div>
+
+      <p class="tip" id="tip">沙子 · 会堆积成 45° 斜坡，能沉进水里</p>
+      <p class="keys">
+        拖动涂抹 · 右键或 Shift 擦除 · 滚轮调笔刷 · 空格暂停 · C 清空 · 数字键 1–0 / Q W E R 换元素
+      </p>
+    </aside>
+  </main>
+</div>
+
+<script src="js/elements.js"></script>
+<script src="js/sim.js"></script>
+<script src="js/presets.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
